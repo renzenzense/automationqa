@@ -1,5 +1,4 @@
 const { Builder, By, Key } = require("selenium-webdriver");
-const assert = require("assert");
 
 async function example() {
     // Dynamically import chai
@@ -9,20 +8,26 @@ async function example() {
     // launch browser
     let driver = await new Builder().forBrowser("chrome").build();
 
-    // navigate to application
-    await driver.get("https://lambdatest.github.io/sample-todo-app/");
+    try {
+        // navigate to application
+        await driver.get("https://lambdatest.github.io/sample-todo-app/");
+    
+        // add a todo entry
+        await driver.findElement(By.id("sampletodotext")).sendKeys("Learn Selenium", Key.RETURN);
+    
+        // assert
+        let todoText = await driver.findElement(By.xpath("//li[last()]")).getText();
+    
+        // assert using chai should
+        todoText.should.equal("Learn ssss");
 
-    // add a todo entry
-    await driver.findElement(By.id("sampletodotext")).sendKeys("Learn Selenium", Key.RETURN);
+        // close the browser if no error occurs
+        await driver.quit();
 
-    // assert
-    let todoText = await driver.findElement(By.xpath("//li[last()]")).getText();
-
-    // assert using chai should
-    todoText.should.equal("Learn Selenium");
-
-    // close the browser (best practice)
-    // await driver.quit();
+    } catch (error) {
+        // Log the error but keep the browser open for debugging
+        console.error("Error during test execution:", error);
+    } 
 }
 
 example();
