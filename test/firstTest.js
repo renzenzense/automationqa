@@ -4,7 +4,7 @@ const { Builder, By, Key } = require("selenium-webdriver");
 describe("add todo test", function () {
 
     // it block
-    it("succesfully adds a todo to appilication", async function () {
+    it("successfully adds a todo to application", async function () {
 
         // Dynamically import chai
         const chai = await import("chai");
@@ -32,13 +32,13 @@ describe("add todo test", function () {
             await driver.quit();
 
         } catch (error) {
-            // Log the error but keep the browser open for debugging
+            // Log the error for debugging
             console.error("Error during test execution:", error);
 
-            process.exit(1); // error counter indicator
+            // Rethrow the error to ensure the test fails properly
+            throw error;
         }
 
     });
 
 });
-
