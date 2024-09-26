@@ -1,1 +1,1 @@
-QA automation practice JS
+QA automation practice using Selenium with JS
