@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --no-timeouts --parallel --reporter mochawesome --require mochawesome/register --exit"
+    "test": "mocha --no-timeouts --parallel --reporter mochawesome --require mochawesome/register --reporter-options reportDir=/Users/renzlauren/Desktop/seleniumDemo/testReports,reportFilename=testResults --exit"
   },
   "author": "",
   "license": "ISC",

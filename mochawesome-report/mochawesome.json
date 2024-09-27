@@ -1,15 +1,15 @@
 {
   "stats": {
     "suites": 2,
-    "tests": 3,
+    "tests": 2,
     "passes": 2,
     "pending": 0,
-    "failures": 1,
-    "start": "2024-09-26T20:45:14.955Z",
-    "end": "2024-09-26T20:45:28.117Z",
-    "duration": 13162,
-    "testsRegistered": 3,
-    "passPercent": 66.66666666666666,
+    "failures": 0,
+    "start": "2024-09-26T23:50:42.328Z",
+    "end": "2024-09-26T23:50:52.060Z",
+    "duration": 9732,
+    "testsRegistered": 2,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "f538195c-1c71-4730-a729-15ce6457762e",
+      "uuid": "35186f25-cab5-4411-bc0d-2cc26df4548a",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,46 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b8f56e7d-61c9-4dc0-ab26-3cb17707e239",
-          "title": "add todo test",
-          "fullFile": "/Users/renzlauren/Desktop/seleniumDemo/test/firstTest.js",
-          "file": "/test/firstTest.js",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "successfully adds a todo to application",
-              "fullTitle": "add todo test successfully adds a todo to application",
-              "timedOut": null,
-              "duration": 10654,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "// Dynamically import chai\n        const chai = await import(\"chai\");\n        const should = chai.should();\n        // launch browser\n        let driver = await new Builder().forBrowser(\"chrome\").build();\n        try {\n            // navigate to application\n            await driver.get(\"https://lambdatest.github.io/sample-todo-app/\");\n            // add a todo entry\n            await driver.findElement(By.id(\"sampletodotext\")).sendKeys(\"Learn Selenium\", Key.RETURN);\n            // assert\n            let todoText = await driver.findElement(By.xpath(\"//li[last()]\")).getText().then(function (value) {\n                return value;\n            });\n            // assert using chai should\n            todoText.should.equal(\"Learn Selenium\");\n            // close the browser if no error occurs\n            await driver.quit();\n        } catch (error) {\n            // Log the error for debugging\n            console.error(\"Error during test execution:\", error);\n            // Rethrow the error to ensure the test fails properly\n            throw error;\n        }",
-              "err": {},
-              "uuid": "2acf6e14-bf48-4278-8e98-2e24e7bf3a79",
-              "parentUUID": null,
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "2acf6e14-bf48-4278-8e98-2e24e7bf3a79"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 10654,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": null
-        },
-        {
-          "uuid": "f56793c2-fc2b-47ea-9eb0-a474bea3a946",
+          "uuid": "64d6d32a-bcf5-43fb-8ca3-3df65629c83a",
           "title": "add another todo test",
           "fullFile": "/Users/renzlauren/Desktop/seleniumDemo/test/secondTest.js",
           "file": "/test/secondTest.js",
@@ -77,7 +38,7 @@
               "title": "successfully adds another todo to application",
               "fullTitle": "add another todo test successfully adds another todo to application",
               "timedOut": null,
-              "duration": 9970,
+              "duration": 9098,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -86,29 +47,7 @@
               "context": null,
               "code": "const chai = await import(\"chai\");\nconst should = chai.should();\nlet driver = await new Builder().forBrowser(\"chrome\").build();\ntry {\n    await driver.get(\"https://lambdatest.github.io/sample-todo-app/\");\n    await driver.findElement(By.id(\"sampletodotext\")).sendKeys(\"Learn Selenium\", Key.RETURN);\n    let todoText = await driver.findElement(By.xpath(\"//li[last()]\")).getText().then(function (value) {\n        return value;\n    });\n    todoText.should.equal(\"Learn Selenium\");\n    await driver.quit();\n} catch (error) {\n    console.error(\"Error during test execution:\", error);\n    throw error;  // Ensure Mocha catches the failure\n}",
               "err": {},
-              "uuid": "0d76017e-1a67-4181-ac52-256a773a775f",
-              "parentUUID": null,
-              "isHook": false,
-              "skipped": false
-            },
-            {
-              "title": "should fail because of incorrect text assertion",
-              "fullTitle": "add another todo test should fail because of incorrect text assertion",
-              "timedOut": null,
-              "duration": 2606,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
-              "pending": false,
-              "context": null,
-              "code": "const chai = await import(\"chai\");\nconst should = chai.should();\nlet driver = await new Builder().forBrowser(\"chrome\").build();\ntry {\n    await driver.get(\"https://lambdatest.github.io/sample-todo-app/\");\n    await driver.findElement(By.id(\"sampletodotext\")).sendKeys(\"Learn Selenium\", Key.RETURN);\n    let todoText = await driver.findElement(By.xpath(\"//li[last()]\")).getText().then(function (value) {\n        return value;\n    });\n    todoText.should.equal(\"Learn JavaSasdasdacript\");  // Incorrect assertion\n    await driver.quit();\n} catch (error) {\n    console.error(\"Error during test execution:\", error);\n    throw error;  // Rethrow error to fail the test\n}",
-              "err": {
-                "message": "AssertionError: expected 'Learn Selenium' to equal 'Learn JavaSasdasdacript'",
-                "estack": "AssertionError: expected 'Learn Selenium' to equal 'Learn JavaSasdasdacript'\n    at Context.<anonymous> (test/secondTest.js:42:29)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
-                "diff": "- Learn Selenium\n+ Learn JavaSasdasdacript\n"
-              },
-              "uuid": "855790a7-34cc-4804-a1d2-6137b3a186fb",
+              "uuid": "d62d8836-8b1f-4863-860a-d25cf28d2056",
               "parentUUID": null,
               "isHook": false,
               "skipped": false
@@ -116,14 +55,51 @@
           ],
           "suites": [],
           "passes": [
-            "0d76017e-1a67-4181-ac52-256a773a775f"
+            "d62d8836-8b1f-4863-860a-d25cf28d2056"
           ],
-          "failures": [
-            "855790a7-34cc-4804-a1d2-6137b3a186fb"
-          ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 12576,
+          "duration": 9098,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": null
+        },
+        {
+          "uuid": "375123c9-d7a4-41a0-acbf-0b0d7d23f414",
+          "title": "add todo test",
+          "fullFile": "/Users/renzlauren/Desktop/seleniumDemo/test/firstTest.js",
+          "file": "/test/firstTest.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "successfully adds a todo to application",
+              "fullTitle": "add todo test successfully adds a todo to application",
+              "timedOut": null,
+              "duration": 9293,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Dynamically import chai\n        const chai = await import(\"chai\");\n        const should = chai.should();\n        // launch browser\n        let driver = await new Builder().forBrowser(\"chrome\").build();\n        try {\n            // navigate to application\n            await driver.get(\"https://lambdatest.github.io/sample-todo-app/\");\n            // add a todo entry\n            await driver.findElement(By.id(\"sampletodotext\")).sendKeys(\"Learn Selenium\", Key.RETURN);\n            // assert\n            let todoText = await driver.findElement(By.xpath(\"//li[last()]\")).getText().then(function (value) {\n                return value;\n            });\n            // assert using chai should\n            todoText.should.equal(\"Learn Selenium\");\n            // close the browser if no error occurs\n            await driver.quit();\n        } catch (error) {\n            // Log the error for debugging\n            console.error(\"Error during test execution:\", error);\n            // Rethrow the error to ensure the test fails properly\n            throw error;\n        }",
+              "err": {},
+              "uuid": "558d31b8-17f3-4162-8714-a797dbf2a76a",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "558d31b8-17f3-4162-8714-a797dbf2a76a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9293,
           "root": false,
           "rootEmpty": false,
           "_timeout": null
