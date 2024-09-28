@@ -1,7 +1,21 @@
 const { Builder, By, Key } = require("selenium-webdriver");
+const ltCapabilities = require("../capabilities")
 
 // describe block
 describe("add todo test", function () {
+
+    var driver;
+
+    const gridURL = "https://renzlaurennn:dgkV6GOXw8GZdjaW5oVSlUK4ANI3GrnSlFs7JNnCC0s4UgDsyx@hub.lambdatest.com/wd/hub"
+
+    beforeEach(function(){
+        ltCapabilities.capability["LT:Options"].name = this.currentTest.title; // specify test scenario
+        driver = new Builder()
+        .usingServer(gridURL)
+        .withCapabilities(ltCapabilities.capability)
+        .build();
+
+    });
 
     // it block
     it("successfully adds a todo to application", async function () {
@@ -11,7 +25,7 @@ describe("add todo test", function () {
         const should = chai.should();
 
         // launch browser
-        let driver = await new Builder().forBrowser("chrome").build();
+        // let driver = await new Builder().forBrowser("chrome").build();
 
         try {
             // navigate to application
