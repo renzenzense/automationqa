@@ -13,17 +13,21 @@ describe("add another todo test", function () {
         { browser: "Firefox", bVersion: "90.0", os: "Windows 10" }
     ];
 
-    browsers.forEach(({browser, bVersion, os})=>{
+    browsers.forEach(({ browser, bVersion, os }) => {
 
         
         // it block
-        it("successfully adds another todo to application", async function () {
+        it(`successfully adds a todo to for browser ${browser}, ${bVersion}, ${os}`, async function () {
             const chai = await import("chai");
             const should = chai.should();
+
+            ltCapabilities.capability.platformName = os
+            ltCapabilities.capability.browserName = browser
+            ltCapabilities.capability.browserVersion = bVersion
             
             // let driver = await new Builder().forBrowser("chrome").build();
             
-            ltCapabilities.capability["LT:Options"].name = this.currentTest.title; // specify test scenario
+            ltCapabilities.capability["LT:Options"].name = this.test.title; // specify test scenario
             driver = new Builder()
             .usingServer(gridURL)
             .withCapabilities(ltCapabilities.capability)
