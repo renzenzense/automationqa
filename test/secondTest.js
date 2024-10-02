@@ -13,7 +13,6 @@ describe("add another todo test", function () {
         .usingServer(gridURL)
         .withCapabilities(ltCapabilities.capability)
         .build();
-
     });
 
     afterEach(async function(){

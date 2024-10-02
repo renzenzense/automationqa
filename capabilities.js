@@ -6,10 +6,11 @@ const capability = {
 		"accessKey": "dgkV6GOXw8GZdjaW5oVSlUK4ANI3GrnSlFs7JNnCC0s4UgDsyx",
 		"platformName": "Windows 10",
 		// "project": "Test Build",
-		"build": "Test Build",
+		"build": "Headless Build",
 		// "name": "Selenium Automation Test",
 		"w3c": true,
-		"plugin": "node_js-node_js"
+		"plugin": "node_js-node_js",
+		"headless": true
 	}
 };
 
